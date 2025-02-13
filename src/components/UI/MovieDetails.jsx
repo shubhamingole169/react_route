@@ -22,7 +22,8 @@ export const MovieDetails = () => {
   } = movieData;
 
   // 192min
-  const totalMinutes = Runtime.replace("min", "");
+  // const totalMinutes = Runtime.replace("min", "");
+  const totalMinutes = parseInt(Runtime.replace("min", ""));
   const hours = Math.floor(totalMinutes / 60); // Calculate the number of hours
   const minutes = totalMinutes % 60; // Calculate the remaining minutes
 
