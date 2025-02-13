@@ -4,7 +4,7 @@ import "../UI/Card.css";
 
 export const MovieDetails = () => {
   const movieData = useLoaderData();
-  console.log(movieData);
+  console.log("moviedata",movieData);
 
   const {
     Actor,
@@ -21,16 +21,24 @@ export const MovieDetails = () => {
     imdbRating,
   } = movieData;
 
-  // 192min
+  //  192min
   // const totalMinutes = Runtime.replace("min", "");
-  const totalMinutes = parseInt(Runtime.replace("min", ""));
-  const hours = Math.floor(totalMinutes / 60); // Calculate the number of hours
-  const minutes = totalMinutes % 60; // Calculate the remaining minutes
+  // const hours = Math.floor(totalMinutes / 60); // Calculate the number of hours
+  // const minutes = totalMinutes % 60; // Calculate the remaining minutes
 
-  console.log(hours, minutes);
+  // console.log(hours, minutes);
 
-  const formattedTime = `${hours}hr ${minutes}min`;
-  console.log(formattedTime);
+  // const formattedTime = `${hours}hr ${minutes}min`;
+  // console.log(formattedTime);
+
+
+const totalMinutes = parseInt(Runtime?.replace("min", "").trim(), 10) || 0;
+const hours = Math.floor(totalMinutes / 60);
+const minutes = totalMinutes % 60;
+const formattedTime = totalMinutes > 0 ? `${hours}hr ${minutes}min` : "N/A";
+
+console.log(`Formatted Time: ${formattedTime}`);
+
 
   return (
     <li className="hero-container hero-movie-container">
